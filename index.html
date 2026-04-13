@@ -13,6 +13,7 @@ html{scroll-behavior:smooth}
 :root {
   --blue:#002FA7;
   --blue-light:#0055ff;
+  --navy:#001a4d;
   --bg:#ffffff;
   --bg-alt:#f8f9fb;
   --text:#1a1a2e;
@@ -44,6 +45,34 @@ body{
 }
 .lang-btn:hover{border-color:var(--blue);color:var(--blue)}
 .lang-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+/* ===== PROMO MARQUEE ===== */
+.promo-marquee{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 50%,#0040b8 100%);
+  padding:12px 0;overflow:hidden;
+}
+.promo-track{
+  display:flex;animation:marquee 28s linear infinite;width:fit-content;
+}
+.promo-track:hover{animation-play-state:paused}
+@keyframes marquee{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}  
+}
+.promo-item{
+  display:flex;align-items:center;gap:10px;
+  white-space:nowrap;padding:0 40px;font-size:14px;color:#fff;font-weight:500;
+  flex-shrink:0;
+}
+.promo-icon{font-size:20px;flex-shrink:0}
+.promo-text{opacity:.95;letter-spacing:.3px}
+.promo-dot{color:rgba(255,255,255,.35);font-size:18px;margin-left:38px;flex-shrink:0}
+
+@media(max-width:768px){
+  .promo-item{font-size:13px;padding:0 24px}
+  .promo-dot{margin-left:22px}
+  @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+}
 
 /* ===== HERO ===== */
 .hero{
@@ -172,6 +201,25 @@ body{
     <button class="lang-btn" data-lang="el" onclick="setLang('el')">ΕΛ</button>
   </div>
 </nav>
+
+<!-- PROMO MARQUEE -->
+<div class="promo-marquee">
+  <div class="promo-track">
+    <div class="promo-item"><span class="promo-icon">🍣</span><span class="promo-text" data-i18n="promo1">每周三 寿司半价日 Sushi 50% OFF Every Wednesday</span><span class="promo-dot">●</span></div>
+    <div class="promo-item"><span class="promo-icon">🧋</span><span class="promo-text" data-i18n="promo2">每周五 奶茶买一送一 Boba Buy 1 Get 1 Free on Fridays</span><span class="promo-dot">●</span></div>
+    <div class="promo-item"><span class="promo-icon">💄</span><span class="promo-text" data-i18n="promo3">韩国面膜买五送一 K-Beauty Mask: Buy 5 Get 1 Free</span><span class="promo-dot">●</span></div>
+    <div class="promo-item"><span class="promo-icon">🎤</span><span class="promo-text" data-i18n="promo4">K-Pop专辑新品上市 New K-Pop Albums In Stock</span><span class="promo-dot">●</span></div>
+    <div class="promo-item"><span class="promo-icon">🍿</span><span class="promo-text" data-i18n="promo5">亚洲零食满20€减3€ Asian Snacks: €3 off €20+</span><span class="promo-dot">●</span></div>
+    <div class="promo-item"><span class="promo-icon">🧴</span><span class="promo-text" data-i18n="promo6">COSRX全线9折 COSRX Skincare -10% All Items</span><span class="promo-dot">●</span></div>
+    <!-- duplicate for seamless loop -->
+    <div class="promo-item"><span class="promo-icon">🍣</span><span class="promo-text" data-i18n="promo1">每周三 寿司半价日 Sushi 50% OFF Every Wednesday</span><span class="promo-dot">●</span></div>
+    <div class="promo-item"><span class="promo-icon">🧋</span><span class="promo-text" data-i18n="promo2">每周五 奶茶买一送一 Boba Buy 1 Get 1 Free on Fridays</span><span class="promo-dot">●</span></div>
+    <div class="promo-item"><span class="promo-icon">💄</span><span class="promo-text" data-i18n="promo3">韩国面膜买五送一 K-Beauty Mask: Buy 5 Get 1 Free</span><span class="promo-dot">●</span></div>
+    <div class="promo-item"><span class="promo-icon">🎤</span><span class="promo-text" data-i18n="promo4">K-Pop专辑新品上市 New K-Pop Albums In Stock</span><span class="promo-dot">●</span></div>
+    <div class="promo-item"><span class="promo-icon">🍿</span><span class="promo-text" data-i18n="promo5">亚洲零食满20€减3€ Asian Snacks: €3 off €20+</span><span class="promo-dot">●</span></div>
+    <div class="promo-item"><span class="promo-icon">🧴</span><span class="promo-text" data-i18n="promo6">COSRX全线9折 COSRX Skincare -10% All Items</span><span class="promo-dot">●</span></div>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -400,7 +448,13 @@ body{
       footerText:"\u00A9 2025 MISO. \u4E9A\u6D32\u751F\u6D3B\u65B9\u5F0F\u4F53\u9A8C\u7AD9 \u00B7 \u96C5\u5178",
       linkShop:"\u5546\u54C1",
       linkStore:"\u95E8\u5E97",
-      linkContact:"\u8054\u7CFB"
+      linkContact:"\u8054\u7CFB",
+      promo1:"\u6BCF\u5468\u4E09 \u5BFF\u53F8\u534A\u4EF7\u65E5 \uD83C\uDF63 Sushi 50% OFF Every Wednesday",
+      promo2:"\u6BCF\u5468\u4E94 \u5976\u8336\u4E70\u4E00\u9001\u4E00 \uD83C\uDF37 Boba BOGO on Fridays",
+      promo3:"\u97E9\u56FD\u9762\u819C\u4EAC\u4E94\u9001\u4E00 \uD83D\uDC84 K-Beauty Mask: Buy 5 Get 1 Free",
+      promo4:"K-Pop\u4E13\u8F91\u65B0\u54C1\u4E0A\u5E02 \uD83C\uFAF5 New Albums In Stock",
+      promo5:"\u4E9A\u6D32\u96F7\u98DF\u6EE120\u20AC\u51CF3\u20AC \uD83C\uDF7F Snacks: \u20AC3 off \u20AC20+",
+      promo6:"COSRX\u5168\u7EBF9\u6298 \uD83E\uDDE5 COSRX Skincare -10%"
     },
     en:{
       title:"MISO.<br>Asian Lifestyle Store",
@@ -461,7 +515,13 @@ body{
       footerText:"\u00A9 2025 MISO. Asian Lifestyle Store in Athens, Greece.",
       linkShop:"Shop",
       linkStore:"Store",
-      linkContact:"Contact"
+      linkContact:"Contact",
+      promo1:"Every Wednesday: Sushi 50% OFF \uD83C\uDF63 \u039C\u03B5\u03C1\u03B9\u03BA\u03AC \u03A4\u03AD\u03C4\u03B1\u03C1\u03B7",
+      promo2:"Fridays: Boba Buy 1 Get 1 Free! \uD83C\uDF37 \u0386\u03B3\u03BF\u03C1\u03B1 1 + 1 \u0394\u03C9\u03C1\u03B5\u03AC\u03BD",
+      promo3:"Korean Masks: Buy 5 Get 1 Free \uD83D\uDC84 \u039C\u03AC\u03C3\u03BA\u03B1 5 + 1 \u0394\u03C9\u03C1\u03B5\u03AC\u03BD",
+      promo4:"New K-Pop Albums In Stock \uD83C\uFAF5 \u039D\u03AD\u03B1 \u03B1\u03BB\u03BC\u03BF\u03CD\u03BC\u03B5\u03BD\u03B1 K-Pop",
+      promo5:"Asian Snacks: \u20AC3 off \u20AC20+ \uD83C\uDF7F \u03A3\u03BD\u03AC\u03BA\u03B5\u03C2 -\u20AC3 \u03B1\u03C0\u03CC \u20AC20",
+      promo6:"COSRX Skincare: -10% All Items \uD83E\uDDE5 COSRX -10%"
     },
     el:{
       title:"MISO.<br>\u0391\u03C3\u03B9\u03B1\u03C4\u03B9\u03BA\u03CC\u03C2 \u03A4\u03C1\u03CC\u03C0\u03BF\u03C2 \u0396\u03C9\u03AE\u03C2",
@@ -522,7 +582,13 @@ body{
       footerText:"\u00A9 2025 MISO. \u0391\u03C3\u03B9\u03B1\u03C4\u03B9\u03BA\u03CC \u039A\u03B1\u03C4\u03AC\u03C3\u03C4\u03B7\u03BC\u03B1 \u03C3\u03C4\u03B7\u03BD \u0391\u03B8\u03AE\u03BD\u03B1.",
       linkShop:"\u03A0\u03C1\u03BF\u03CA\u03CC\u03BD\u03C4\u03B1",
       linkStore:"\u039A\u03B1\u03C4\u03AC\u03C3\u03C4\u03B7\u03BC\u03B1",
-      linkContact:"\u0395\u03C0\u03B9\u03BA\u03BF\u03B9\u03BD\u03C9\u03BD\u03AF\u03B1"
+      linkContact:"\u0395\u03C0\u03B9\u03BA\u03BF\u03B9\u03BD\u03C9\u03BD\u03AF\u03B1",
+      promo1:"\u039A\u03AC\u03B8\u03B5 \u03A4\u03AD\u03C4\u03B1\u03C1\u03B7: \u03A3\u03CD\u03C3\u03B9 -50% \uD83C\uDF63 Sushi 50% OFF",
+      promo2:"\u03A0\u03AC\u03C1\u03B1\u03C3\u03BA\u03B5\u03C5\u03AE: Boba 1+1 \u0394\u03C9\u03C1\u03AD\u03AC\u03BD! \uD83C\uDF37",
+      promo3:"Koreatiko Mask 5+1 \u0394\u03C9\u03C1\u03B5\u03AC\u03BD \uD83D\uDC84 K-Beauty BOGO",
+      promo4:"\u039D\u03AD\u03B1 K-Pop \u03B1\u03BB\u03BC\u03BF\u03CD\u03BC\u03B5\u03BD\u03B1 \uD83C\uFAF5 New Albums",
+      promo5:"\u0391\u03C3\u03B9\u03B1\u03C4\u03B9\u03BA\u03AC \u03C3\u03BD\u03AC\u03BA -\u20AC3 \u03B1\u03C0\u03CC \u20AC20 \uD83C\uDF7F",
+      promo6:"COSRX -10% \u03C3\u03B5 \u03CC\u03BB\u03B1 \u03C4\u03B1 \u03C0\u03C1\u03BF\u03CA\u03CC\u03BD\u03C4\u03B1 \uD83E\uDDE5"
     }
   };
 
