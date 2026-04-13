@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MISO — Asian Lifestyle Store | Athens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+:root {
+  --blue:#002FA7;
+  --blue-light:#0055ff;
+  --bg:#ffffff;
+  --bg-alt:#f8f9fb;
+  --text:#1a1a2e;
+  --text-light:#6b7280;
+  --border:#e5e7eb;
+  --radius:16px;
+}
+
+body{
+  font-family:'Inter','Noto Sans SC',-apple-system,sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ===== NAV ===== */
+.nav{
+  position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;
+  padding:18px 48px;
+}
+.nav-logo img{height:36px;width:auto}
+.nav-right{display:flex;align-items:center;gap:8px}
+.lang-btn{
+  padding:7px 16px;border-radius:24px;border:1px solid var(--border);
+  background:none;color:var(--text-light);font-size:13px;cursor:pointer;
+  font-family:inherit;font-weight:500;transition:all .2s;
+}
+.lang-btn:hover{border-color:var(--blue);color:var(--blue)}
+.lang-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+/* ===== HERO ===== */
+.hero{
+  max-width:800px;margin:0 auto;padding:120px 24px 80px;text-align:center;
+}
+.hero-logo img{height:130px;width:auto;margin-bottom:20px;opacity:1}
+.hero-sub{
+  font-size:36px;font-weight:700;color:#1a1a2e;
+  letter-spacing:.5px;margin-bottom:24px;
+}
+.hero h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:600;color:#1a1a2e;margin-bottom:16px;letter-spacing:-0.3px}
+.hero p{
+  font-size:17px;color:var(--text-light);max-width:480px;margin:0 auto 36px;line-height:1.7;
+  font-weight:300;
+}
+.hero-btn{
+  display:inline-block;padding:14px 36px;border-radius:30px;
+  background:var(--blue);color:#fff;border:none;font-size:15px;
+  font-weight:600;cursor:pointer;text-decoration:none;transition:all .25s;
+}
+.hero-btn:hover{background:var(--blue-light);transform:translateY(-1px)}
+
+/* ===== CAT BAR ===== */
+.cat-bar{
+  max-width:800px;margin:0 auto;padding:0 24px 40px;
+  display:flex;justify-content:center;gap:8px;flex-wrap:wrap;
+}
+.cat-btn{
+  padding:9px 22px;border-radius:30px;border:1px solid var(--border);
+  background:#fff;color:var(--text-light);font-size:14px;cursor:pointer;
+  font-family:inherit;font-weight:500;transition:all .2s;
+}
+.cat-btn.active,.cat-btn:hover{
+  border-color:var(--blue);color:var(--blue);background:rgba(0,47,167,.04)
+}
+
+/* ===== SECTION ===== */
+.section{padding:60px 24px;max-width:1100px;margin:0 auto}
+.section-title{
+  text-align:center;font-size:28px;font-weight:700;margin-bottom:8px;color:var(--text);
+  letter-spacing:-0.5px;
+}
+.section-subtitle{text-align:center;color:var(--text-light);margin-bottom:48px;font-size:15px;font-weight:300}
+
+/* ===== GRID ===== */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+
+/* ===== CARD ===== */
+.card{
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:var(--radius);overflow:hidden;transition:all .25s ease;
+}
+.card:hover{
+  border-color:rgba(0,47,167,.25);box-shadow:0 4px 20px rgba(0,47,167,.06);
+  transform:translateY(-2px);
+}
+.card-img{
+  height:200px;display:flex;align-items:center;justify-content:center;
+  background:var(--bg-alt);position:relative;overflow:hidden;
+}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.card:hover .card-img img{transform:scale(1.05)}
+.card-tag{
+  position:absolute;top:12px;left:12px;padding:4px 12px;
+  border-radius:12px;font-size:11px;font-weight:600;color:#fff;
+  letter-spacing:.5px;text-transform:uppercase;
+}
+.tag-boba{background:var(--blue)}
+.tag-sushi{background:#10b981}
+.tag-snack{background:#f59e0b}
+.tag-beauty{background:#ec4899}
+.tag-tea{background:var(--blue)}
+.card-body{padding:18px}
+.card-name{font-size:15px;font-weight:600;margin-bottom:4px;color:var(--text)}
+.card-desc{font-size:13px;color:var(--text-light);line-height:1.55;margin-bottom:10px}
+.card-price{font-size:15px;font-weight:700;color:var(--blue)}
+
+/* ===== STORE ===== */
+.store-section{background:var(--bg-alt);padding:80px 24px;margin-top:40px}
+.store-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;max-width:900px;margin:0 auto;align-items:center}
+.store-info h2{font-size:26px;font-weight:700;margin-bottom:16px;color:var(--text)}
+.store-info p{color:var(--text-light);font-size:15px;line-height:1.75;margin-bottom:20px;font-weight:300}
+.store-detail{display:flex;align-items:flex-start;gap:11px;padding:10px 0;color:var(--text-light);font-size:14px;font-weight:400}
+.store-detail strong{color:var(--text);font-weight:600}
+.store-detail .icon{font-size:18px;flex-shrink:0;margin-top:2px}
+.store-map{
+  background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);
+  height:320px;display:flex;align-items:center;justify-content:center;
+}
+.store-map a{color:var(--blue);text-decoration:none;font-weight:600;font-size:14px}
+.store-map a:hover{text-decoration:underline}
+
+/* ===== FOOTER ===== */
+.footer{
+  text-align:center;padding:48px 24px;
+  border-top:1px solid var(--border);
+}
+.footer-logo img{height:40px;width:auto;margin-bottom:12px;opacity:.7}
+.footer p{color:var(--text-light);font-size:13px}
+.footer-links{margin-top:20px;display:flex;justify-content:center;gap:28px}
+.footer-links a{color:var(--text-light);font-size:13px;text-decoration:none;font-weight:500;transition:color .2s}
+.footer-links a:hover{color:var(--blue)}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  .nav{padding:14px 20px}
+  .hero{padding:80px 20px 50px}
+  .hero-logo img{height:48px}
+  .grid{grid-template-columns:1fr;gap:14px}
+  .store-grid{grid-template-columns:1fr;gap:32px}
+  .section{padding:44px 16px}
+  .store-section{padding:56px 16px}
+  .section-title{font-size:22px}
+  .card-img{height:150px;font-size:3rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo"><img src="logo-blue.png" alt="MISO"></div>
+  <div class="nav-right">
+    <button class="lang-btn active" data-lang="zh" onclick="setLang('zh')">中文</button>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" data-lang="el" onclick="setLang('el')">ΕΛ</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-logo"><img src="logo-white.png" alt="MISO"></div>
+  <h1 data-i18n="heroSub">亚洲生活方式</h1>
+  <p data-i18n="desc">雅典的亚洲生活方式体验店。中国奶茶、日本寿司、韩国美妆、亚洲零食——一站式体验东方文化潮流。</p>
+  <button class="hero-btn" onclick="document.querySelector('.cat-bar').scrollIntoView({behavior:'smooth'})" data-i18n="btnExplore">探索商品 ↓</button>
+</section>
+
+<!-- CAT BAR -->
+<div class="cat-bar">
+  <button class="cat-btn active" data-cat="all" onclick="filterProducts('all')" data-i18n="catAll">全部</button>
+  <button class="cat-btn" data-cat="boba" onclick="filterProducts('boba')" data-i18n="catBobaLabel">🧋 奶茶果茶</button>
+  <button class="cat-btn" data-cat="sushi" onclick="filterProducts('sushi')" data-i18n="catSushiLabel">🍣 寿司日料</button>
+  <button class="cat-btn" data-cat="snack" onclick="filterProducts('snack')" data-i18n="catSnackLabel">🍿 零食调味</button>
+  <button class="cat-btn" data-cat="beauty" onclick="filterProducts('beauty')" data-i18n="catBeautyLabel">💄 美妆护肤</button>
+</div>
+
+<!-- PRODUCTS -->
+<section class="section" id="products">
+  <h2 class="section-title" data-i18n="prodTitle">热门商品</h2>
+  <p class="section-subtitle" data-i18n="prodSubtitle">精选亚洲好物，从茶饮到美妆，品质保证</p>
+
+  <div class="grid" id="productGrid">
+    <!-- BOBA / TEA -->
+    <div class="card" data-category="boba">
+      <div class="card-img"><img src="img-boba-oolong.png" alt="Golden Oolong Boba" loading="lazy"><span class="card-tag tag-boba" data-i18n="tagBoba">奶茶</span></div>
+      <div class="card-body">
+        <div class="card-name" data-i18n="item1Name">金乌龙珍珠奶茶</div>
+        <div class="card-desc" data-i18n="item1Desc">台湾金乌龙茶底 + 手煮黑糖珍珠，Q弹丝滑</div>
+        <div class="card-price">€5.80</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="boba">
+      <div class="card-img"><img src="img-boba-fruit.png" alt="Fresh Fruit Tea" loading="lazy"><span class="card-tag tag-boba" data-i18n="tagFruit">果茶</span></div>
+      <div class="card-body">
+        <div class="card-name" data-i18n="item2Name">满杯鲜果茶</div>
+        <div class="card-desc" data-i18n="item2Desc">新鲜西瓜+草莓+芒果+柠檬，茉莉绿茶底</div>
+        <div class="card-price">€6.50</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="boba">
+      <div class="card-img"><img src="img-boba-matcha.png" alt="Matcha Latte" loading="lazy"><span class="card-tag tag-tea" data-i18n="tagTea">茗茶</span></div>
+      <div class="card-body">
+        <div class="card-name" data-i18n="item3Name">宇治抹茶拿铁</div>
+        <div class="card-desc" data-i18n="item3Desc">日本宇治抹茶粉 + 鲜奶打发，微苦回甘</div>
+        <div class="card-price">€6.20</div>
+      </div>
+    </div>
+
+    <!-- SUSHI -->
+    <div class="card" data-category="sushi">
+      <div class="card-img"><img src="img-sushi-omakase.png" alt="Omakase Sushi" loading="lazy"><span class="card-tag tag-sushi" data-i18n="tagSushi">寿司</span></div>
+      <div class="card-body">
+        <div class="card-name" data-i18n="item4Name">Omakase 寿司套餐</div>
+        <div class="card-desc" data-i18n="item4Desc">日本籍师傅现场制作，8-10贯精选刺身</div>
+        <div class="card-price">€28.00</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="sushi">
+      <div class="card-img"><img src="img-sushi-bento.png" alt="Japanese Bento" loading="lazy"><span class="card-tag tag-sushi" data-i18n="tagBento">便当</span></div>
+      <div class="card-body">
+        <div class="card-name" data-i18n="item5Name">日式寿司便当</div>
+        <div class="card-desc" data-i18n="item5Desc">含握寿司6贯 + 味噌汤 + 小菜，每日限量</div>
+        <div class="card-price">€15.00</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="sushi">
+      <div class="card-img"><img src="img-sushi-karaage.png" alt="Karaage Chicken" loading="lazy"><span class="card-tag tag-snack" data-i18n="tagSnack">小食</span></div>
+      <div class="card-body">
+        <div class="card-name" data-i18n="item6Name">日式炸鸡/唐扬</div>
+        <div class="card-desc" data-i18n="item6Desc">秘制酱料腌制，外酥里嫩，配日式蛋黄酱</div>
+        <div class="card-price">€8.50</div>
+      </div>
+    </div>
+
+    <!-- SNACKS -->
+    <div class="card" data-category="snack">
+      <div class="card-img"><img src="img-snack.png" alt="Asian Snacks" loading="lazy"><span class="card-tag tag-snack" data-i18n="tagSnacks">零食</span></div>
+      <div class="card-body">
+        <div class="card-name" data-i18n="item7Name">亚洲零食礼包</div>
+        <div class="card-desc" data-i18n="item7Desc">Pocky、辣条、鱿鱼丝、干脆面——追剧必备</div>
+        <div class="card-price">€12.00</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="snack">
+      <div class="card-img"><img src="img-sauce.png" alt="Asian Sauces" loading="lazy"><span class="card-tag tag-snack" data-i18n="tagSauce">调料</span></div>
+      <div class="card-body">
+        <div class="card-name" data-i18n="item8Name">亚洲调味品专区</div>
+        <div class="card-desc" data-i18n="item8Desc">生抽/蚝油/辣酱/咖喱/味噌——做亚洲料理必备</div>
+        <div class="card-price">€3.50起</div>
+      </div>
+    </div>
+
+    <!-- BEAUTY -->
+    <div class="card" data-category="beauty">
+      <div class="card-img"><img src="img-beauty-cosrx.png" alt="COSRX Snail Essence" loading="lazy"><span class="card-tag tag-beauty" data-i18n="tagBeauty">美妆</span></div>
+      <div class="card-body">
+        <div class="card-name" data-i18n="item9Name">COSRX 蜗牛精华</div>
+        <div class="card-desc" data-i18n="item9Desc">96%蜗牛粘液，修复保湿，K-Beauty必入</div>
+        <div class="card-price">€18.00</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="beauty">
+      <div class="card-img"><img src="img-beauty-mask.png" alt="Korean Masks" loading="lazy"><span class="card-tag tag-beauty" data-i18n="tagSkincare">护肤</span></div>
+      <div class="card-body">
+        <div class="card-name" data-i18n="item10Name">韩国面膜套装</div>
+        <div class="card-desc" data-i18n="item10Desc">VT/Dr.Jart/TonyMoly 热门款，补水美白抗老</div>
+        <div class="card-price">€15.00</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="beauty">
+      <div class="card-img"><img src="img-beauty-3ce.png" alt="3CE Makeup" loading="lazy"><span class="card-tag tag-beauty" data-i18n="tagMakeup">彩妆</span></div>
+      <div class="card-body">
+        <div class="card-name" data-i18n="item11Name">3CE 彩妆系列</div>
+        <div class="card-desc" data-i18n="item11Desc">首尔风唇釉 + 九宫格眼影盘，韩剧女主同款</div>
+        <div class="card-price">€22.00</div>
+      </div>
+    </div>
+
+    <div class="card" data-category="beauty">
+      <div class="card-img"><img src="img-beauty-kpop.png" alt="K-Pop Albums" loading="lazy"><span class="card-tag tag-beauty" data-i18n="tagKpop">K-Pop</span></div>
+      <div class="card-body">
+        <div class="card-name" data-i18n="item12Name">K-Pop 专辑周边</div>
+        <div class="card-desc" data-i18n="item12Desc">BTS / BLACKPINK / IVE 正版专辑、小卡、海报</div>
+        <div class="card-price">€25.00起</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORE INFO -->
+<section class="store-section" id="store">
+  <div class="store-grid">
+    <div class="store-info">
+      <h2 data-i18n="storeTitle">来找我们</h2>
+      <p data-i18n="storeDesc">MISO 是一家位于雅典 Moschato 的亚洲生活方式实体店。欢迎来店里逛逛、喝杯奶茶、吃份寿司！</p>
+      <div class="store-detail"><span class="icon">📍</span> <strong data-i18n="addressLabel">地址：</strong><span data-i18n="addressValue">Makrigianni 75, Moschato 183 45, Athens, Greece</span></div>
+      <div class="store-detail"><span class="icon">🕐</span> <strong data-i18n="hoursLabel">营业时间：</strong><span data-i18n="hoursValue">周二至周日 11:00 – 22:00（周一休息）</span></div>
+      <div class="store-detail"><span class="icon">📞</span> <strong data-i18n="contactLabel">联系方式：</strong>@miso.gr</div>
+    </div>
+    <div class="store-map">
+      <a href="https://www.google.com/maps/search/?api=1&query=Makrigianni+75+Moschato+18345+Athens+Greece" target="_blank" data-i18n="mapLink">在 Google Maps 中打开 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo"><img src="logo-blue.png" alt="MISO"></div>
+  <p data-i18n="footerText">&copy; 2025 MISO. Asian Lifestyle Store in Athens, Greece.</p>
+  <div class="footer-links">
+    <a href="#products" data-i18n="linkShop">商品</a>
+    <a href="#store" data-i18n="linkStore">门店</a>
+    <a href="#" data-i18n="linkContact">联系</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ========== i18n DATA (clean Unicode escapes only) ========== */
+  var i18n = {
+    zh:{
+      title:"MISO.<br>\u4E9A\u6D32\u751F\u6D3B\u65B9\u5F0F",
+      desc:"\u96C5\u5178\u7684\u4E9A\u6D32\u751F\u6D3B\u65B9\u5F0F\u4F53\u9A8C\u5E97\u3002\u4E2D\u56FD\u5976\u8336\u3001\u65E5\u672C\u5BFF\u53F8\u3001\u97E9\u56FD\u7F8E\u5986\u3001\u4E9A\u6D32\u96F6\u98DF\u2014\u2014\u4E00\u7AD9\u5F0F\u4F53\u9A8C\u4E1C\u65B9\u6587\u5316\u6F6E\u6D41\u3002",
+      btnExplore:"\u63A2\u7D22\u5546\u54C1 \u2193",
+      heroSub:"\u4E9A\u6D32\u751F\u6D3B\u65B9\u5F0F",
+      catAll:"\u5168\u90E8",
+      tagBoba:"\u5976\u8336",
+      tagFruit:"\u679C\u8336",
+      tagTea:"\u8303\u8336",
+      tagSushi:"\u5BFF\u53F8",
+      tagBento:"\u4FBF\u5F53",
+      tagSnack:"\u5C0F\u98DF",
+      tagSnacks:"\u96F6\u98DF",
+      tagSauce:"\u8C03\u6599",
+      tagBeauty:"\u7F8E\u5986",
+      tagSkincare:"\u62A4\u80A4",
+      tagMakeup:"\u5F69\u5986",
+      tagKpop:"K-Pop",
+      catBobaLabel:"\ud83c\udf37 \u5976\u8336\u679C\u8336",
+      catSushiLabel:"\ud83c\udf63 \u5BFF\u53F8\u65E5\u6599",
+      catSnackLabel:"\ud83c\udf7F \u96F6\u98DF\u8C03\u5473",
+      catBeautyLabel:"\ud83d\udc84 \u7F8E\u5986\u62A4\u80A4",
+      prodTitle:"\u70ED\u95E8\u5546\u54C1",
+      prodSubtitle:"\u7CBE\u9009\u4E9A\u6D32\u597D\u7269\uFF0C\u4ECE\u8336\u996E\u5230\u7F8E\u5986\uFF0C\u54C1\u8D28\u4FDD\u8BC1",
+      item1Name:"\u91D1\u4E4C\u9F99\u73CD\u73E0\u5976\u8336",
+      item1Desc:"\u53F0\u6E7E\u91D1\u4E4C\u9F99\u8336\u5E95 + \u624B\u716E\u9ED1\u7CD6\u73CD\u73E0\uFF0CQ\u5F39\u4E1D\u6ED1",
+      item2Name:"\u6EE1\u676F\u9C9C\u679C\u8336",
+      item2Desc:"\u65B0\u9C9C\u897F\u74DC+\u8349\u8393+\u82E9\u679C+\u67E0\u6AAC\uFF0C\u8309\u838E\u7EFF\u8336\u5E95",
+      item3Name:"\u5B87\u6CBB\u62B9\u8336\u62FF\u94DE",
+      item3Desc:"\u65E5\u672C\u5B87\u6CBB\u62B9\u8336\u7C89 + \u9C9C\u5976\u53D1\u6253\uFF0C\u5FAE\u82E6\u56DE\u7518",
+      item4Name:"Omakase \u5BFF\u53F8\u5957\u9910",
+      item4Desc:"\u65E5\u672C\u7C4D\u5E08\u5085\u73B0\u573A\u5236\u4F5C\uFF0C8-10\u8D2F\u7CBE\u9009\u523A\u8EAB",
+      item5Name:"\u65E5\u5F0F\u5BFF\u53F8\u4FBF\u5F53",
+      item5Desc:"\u542B\u63E1\u5BFF\u53F86\u8D2F + \u5473\u564C\u6C64 + \u5C0F\u83DC\uFF0C\u6BCF\u65E5\u9650\u91CF",
+      item6Name:"\u65E5\u5F0F\u70B8\u9E21/\u5510\u626C",
+      item6Desc:"\u79D8\u5236\u9171\u6599\u8102\u5236\uFF0C\u5916\u9165\u91CC\u5AE2\uFF0C\u914D\u65E5\u5F0F\u86CB\u9EC4\u9171",
+      item7Name:"\u4E9A\u6D32\u96F6\u98DF\u793C\u5305",
+      item7Desc:"Pocky\u3001\u8F6B\u6761\u3001\u9C7F\u9C7D\u4E1D\u3001\u5E72\u8106\u9762\u2014\u2014\u8FFD\u5267\u5FC5\u5907",
+      item8Name:"\u4E9A\u6D32\u8C03\u5473\u54C1\u4E13\u533A",
+      item8Desc:"\u751F\u62BD/\u869D\u6CB9/\u8F6B\u9171/\u5496\u55B1/\u5473\u564C\u2014\u2014\u505A\u4E9A\u6D32\u6599\u7406\u5FC5\u5907",
+      item9Name:"COSRX \u8717\u725B\u7CBE\u534E",
+      item9Desc:"96% \u8717\u725B\u7C98\u6DB2\uFF0C\u4FEE\u590D\u4FDD\u6E7F\uFF0CK-Beauty\u5FC5\u5165",
+      item10Name:"\u97E9\u56FD\u9762\u819C\u5957\u88C5",
+      item10Desc:"VT/Dr.Jart/TonyMoly \u70ED\u95E8\u6B3E\uFF0C\u8865\u6C34\u7F8E\u767D\u6297\u8001",
+      item11Name:"3CE \u5F69\u5986\u7CFB\u5217",
+      item11Desc:"\u9996\u5C14\u98CE\u5507\u9716 + \u4E5D\u5BAB\u683C\u773C\u5F71\u76D8\uFF0C\u97E9\u5267\u5973\u4E3B\u540C\u6B3E",
+      item12Name:"K-Pop \u4E13\u8F91\u5468\u8FB9",
+      item12Desc:"BTS / BLACKPINK / IVE \u6B63\u7248\u4E13\u8F91\u3001\u5C0F\u5361\u3001\u6D77\u62A5",
+      storeTitle:"\u6765\u627E\u6211\u4EEC",
+      storeDesc:"MISO \u662F\u4E00\u5BB6\u4F4D\u4E8E\u96C5\u5178 Moschato \u7684\u4E9A\u6D32\u751F\u6D3B\u65B9\u5F0F\u5B9E\u4F53\u5E97\u3002\u6B22\u8FCE\u6765\u5E97\u91CC\u901B\u901B\u3001\u559D\u676F\u5976\u8336\u3001\u5403\u4EFD\u5BFF\u53F8\uFF01",
+      addressLabel:"\u5730\u5740\uFF1A",
+      addressValue:"Makrigianni 75, Moschato 183 45, Athens, Greece",
+      hoursLabel:"\u8425\u4E1A\u65F6\u95F4\uFF1A",
+      hoursValue:"\u5468\u4E8C\u81F3\u5468\u65E5 11:00 \u2013 22:00\uFF08\u5468\u4E00\u4F11\u606F\uFF09",
+      contactLabel:"\u8054\u7CFB\u65B9\u5F0F\uFF1A",
+      mapLink:"\u5728 Google Maps \u4E2D\u6253\u5F00 \u2192",
+      footerText:"\u00A9 2025 MISO. \u4E9A\u6D32\u751F\u6D3B\u65B9\u5F0F\u4F53\u9A8C\u7AD9 \u00B7 \u96C5\u5178",
+      linkShop:"\u5546\u54C1",
+      linkStore:"\u95E8\u5E97",
+      linkContact:"\u8054\u7CFB"
+    },
+    en:{
+      title:"MISO.<br>Asian Lifestyle Store",
+      desc:"Your Asian lifestyle destination in Athens. Bubble tea, sushi, K-beauty, Asian snacks \u2014 all under one roof.",
+      btnExplore:"Explore Products \u2193",
+      heroSub:"Asian Lifestyle Store",
+      catAll:"All",
+      tagBoba:"Tea",
+      tagFruit:"Juice",
+      tagTea:"Premium Tea",
+      tagSushi:"Sushi",
+      tagBento:"Bento",
+      tagSnack:"Bites",
+      tagSnacks:"Snacks",
+      tagSauce:"Sauces",
+      tagBeauty:"Beauty",
+      tagSkincare:"Skincare",
+      tagMakeup:"Makeup",
+      tagKpop:"K-Pop",
+      catBobaLabel:"\ud83c\udf37 Tea & Juice",
+      catSushiLabel:"\ud83c\udf63 Sushi & Japanese",
+      catSnackLabel:"\ud83c\udf7F Snacks & Sauces",
+      catBeautyLabel:"\ud83d\udc84 Beauty & Skincare",
+      prodTitle:"Popular Products",
+      prodSubtitle:"Curated Asian goodies from tea to beauty",
+      item1Name:"Golden Oolong Boba Tea",
+      item1Desc:"Taiwanese golden oolong with chewy brown sugar pearls",
+      item2Name:"Fresh Fruit Tea",
+      item2Desc:"Watermelon, strawberry, mango & lemon over jasmine green tea",
+      item3Name:"Uji Matcha Latte",
+      item3Desc:"Premium Uji matcha whisked into fresh milk",
+      item4Name:"Omakase Sushi Set",
+      item4Desc:"Japanese chef prepares 8-10 pieces live, premium sashimi",
+      item5Name:"Japanese Bento Box",
+      item5Desc:"6 nigiri + miso soup + sides, daily limited edition",
+      item6Name:"Karaage Fried Chicken",
+      item6Desc:"Secret marinade, crispy outside, tender inside",
+      item7Name:"Asian Snack Pack",
+      item7Desc:"Pocki, spicy strips, dried squid \u2014 binge-watching essentials",
+      item8Name:"Asian Pantry Staples",
+      item8Desc:"Soy sauce, oyster oil, chili, curry, miso \u2014 cooking essentials",
+      item9Name:"COSRX Snail Essence",
+      item9Desc:"96% snail mucin for repair & hydration, K-Beauty cult favorite",
+      item10Name:"Korean Mask Set",
+      item10Desc:"VT, Dr.Jart, TonyMoly bestsellers \u2014 hydrate, brighten, anti-age",
+      item11Name:"3CE Makeup Collection",
+      item11Desc:"Seoul-style lip tints & eyeshadow palettes, K-drama look",
+      item12Name:"K-Pop Album Merch",
+      item12Desc:"BTS / BLACKPINK / IVE official albums, photocards, posters",
+      storeTitle:"Visit Us",
+      storeDesc:"MISO is an Asian lifestyle physical store in Moschato, Athens. Come by for boba, sushi and shopping!",
+      addressLabel:"Address:",
+      addressValue:"Makrigianni 75, Moschato 183 45, Athens, Greece",
+      hoursLabel:"Hours:",
+      hoursValue:"Tue\u2013Sun 11:00\u201322:00 (Closed Mon)",
+      contactLabel:"Contact:",
+      mapLink:"Open in Google Maps \u2192",
+      footerText:"\u00A9 2025 MISO. Asian Lifestyle Store in Athens, Greece.",
+      linkShop:"Shop",
+      linkStore:"Store",
+      linkContact:"Contact"
+    },
+    el:{
+      title:"MISO.<br>\u0391\u03C3\u03B9\u03B1\u03C4\u03B9\u03BA\u03CC\u03C2 \u03A4\u03C1\u03CC\u03C0\u03BF\u03C2 \u0396\u03C9\u03AE\u03C2",
+      desc:"\u039F \u03C0\u03C1\u03BF\u03BF\u03C1\u03B9\u03C3\u03BC\u03CC\u03C2 \u03C3\u03BF\u03C5 \u03B3\u03B9\u03B1 \u03B1\u03C3\u03B9\u03B1\u03C4\u03B9\u03BA\u03CC \u03C4\u03C1\u03CC\u03C0\u03BF \u03B6\u03C9\u03AE\u03C2 \u03C3\u03C4\u03B7\u03BD \u0391\u03B8\u03AD\u03BD\u03B1. Bubble tea, sushi, K-beauty, \u03C3\u03BD\u03B1\u03BA \u2014 \u03CC\u03BB\u03B1 \u03B5\u03B4\u03CE.",
+      btnExplore:"\u0394\u03B5\u03AF\u03C4\u03B5 \u03A0\u03C1\u03BF\u03CA\u03CC\u03BD\u03C4\u03B1 \u2193",
+      heroSub:"\u0391\u03C3\u03B9\u03B1\u03C4\u03B9\u03BA\u03CC\u03C2 \u03A4\u03C1\u03CC\u03C0\u03BF\u03C2 \u0396\u03C9\u03AE\u03C2",
+      catAll:"\u038C\u03BB\u03B1",
+      tagBoba:"\u03A4\u03C3\u03AC\u03B9",
+      tagFruit:"\u03A7\u03C5\u03CC\u03C2",
+      tagTea:"Premium \u03A4\u03C3\u03AC\u03B9",
+      tagSushi:"\u03A3\u03CD\u03C3\u03B9",
+      tagBento:"Bento",
+      tagSnack:"\u03A3\u03BD\u03B1\u03BA",
+      tagSnacks:"\u03A3\u03BD\u03B1\u03BA\u03B5\u03C2",
+      tagSauce:"\u039C\u03C0\u03B1\u03BB\u03CC\u03BC\u03B9\u03BA\u03BF",
+      tagBeauty:"\u039F\u03BC\u03BF\u03C1\u03C6\u03B9\u03AC",
+      tagSkincare:"\u03A0\u03B5\u03C1\u03B9\u03C0\u03BF\u03AF\u03B7\u03C3\u03B7",
+      tagMakeup:"Makeup",
+      tagKpop:"K-Pop",
+      catBobaLabel:"\ud83c\udf37 \u03A4\u03C3\u03AC\u03B9 & \u03A7\u03C5\u03CC\u03C2",
+      catSushiLabel:"\ud83c\udf63 \u03A3\u03CD\u03C3\u03B9 & \u0399\u03B1\u03C0\u03C9\u03BD\u03B9\u03BA\u03AC",
+      catSnackLabel:"\ud83c\udf7F \u03A3\u03BD\u03B1\u03BA\u03B5\u03C2 & \u039C\u03C0\u03B1\u03BB\u03CC\u03BC\u03B9\u03BA\u03B1",
+      catBeautyLabel:"\ud83d\udc84 \u039F\u03BC\u03BF\u03C1\u03C6\u03AE & \u03A0\u03B5\u03C1\u03AF\u03C0\u03BF\u03B9\u03DE\u03C3\u03B7",
+      prodTitle:"\u0394\u03B7\u03BC\u03BF\u03C6\u03B9\u03BB\u03AE \u03A0\u03C1\u03BF\u03CA\u03CC\u03BD\u03C4\u03B1",
+      prodSubtitle:"\u0395\u03C0\u03B9\u03BB\u03B5\u03B3\u03BC\u03AD\u03BD\u03B1 \u03B1\u03C3\u03B9\u03B1\u03C4\u03B9\u03BA\u03AC \u03C0\u03C1\u03BF\u03CA\u03CC\u03BD\u03C4\u03B1 \u03B1\u03C0\u03CC \u03C4\u03C3\u03AC\u03B9 \u03BC\u03AD\u03C7\u03C1\u03B9 \u03BF\u03BC\u03BF\u03C1\u03C6\u03B9\u03AC",
+      item1Name:"\u03A7\u03C1\u03C5\u03CC Oolong Boba",
+      item1Desc:"Taiwanese golden oolong \u03BC\u03B5 \u03BC\u03AC\u03C5\u03C1\u03B7 \u03B6\u03AC\u03C7\u03B1\u03C1\u03B7 pearl",
+      item2Name:"\u03A6\u03C1\u03AD\u03C3\u03BA\u03BF \u03A6\u03C1\u03BF\u03CD\u03C4\u03BF \u03A4\u03C3\u03AC\u03B9",
+      item2Desc:"\u039A\u03B1\u03C1\u03C0\u03BF\u03CD\u03B6\u03B1, \u03C6\u03C1\u03AC\u03BF\u03C5\u03BB\u03B1, \u03BC\u03AC\u03B3\u03BA\u03BF, \u03BB\u03B5\u03BC\u03CC\u03BD\u03B9 \u03BC\u03B5 jasmine \u03C4\u03C3\u03AC\u03B9",
+      item3Name:"Uji Matcha Latte",
+      item3Desc:"Premium Uji matcha \u03BC\u03B5 \u03C6\u03C1\u03AD\u03C3\u03BA\u03BF \u03B3\u03AC\u03BB\u03B1",
+      item4Name:"Omakase \u03A3\u03CD\u03C3\u03B9 \u03A3\u03B5\u03C4.",
+      item4Desc:"\u0399\u03AC\u03C0\u03C9\u03BD\u03B1\u03C2 chef, 8-10 \u03BA\u03BF\u03BC\u03BC\u03AC\u03C4\u03B9\u03B1, premium sashimi",
+      item5Name:"\u0399\u03B1\u03C0\u03C9\u03BD\u03B9\u03BA\u03CC Bento",
+      item5Desc:"6 nigiri + miso soup, \u03B7\u03BC\u03B5\u03C1\u03AE\u03C3\u03B9\u03B1 \u03AD\u03BA\u03B4\u03BF\u03C3\u03B7",
+      item6Name:"Karaage \u039A\u03BF\u03C4\u03CC\u03C0\u03BF\u03C5\u03BB\u03BF",
+      item6Desc:"\u039C\u03C5\u03C3\u03C4\u03B9\u03BA\u03AE \u03BC\u03B1\u03C1\u03B9\u03BD\u03AC\u03B4\u03B1, \u03C4\u03C1\u03B1\u03B3\u03B1\u03BD\u03CC \u03B5\u03BE\u03C9\u03C4\u03B5\u03C1\u03B9\u03BA\u03CC",
+      item7Name:"\u0391\u03C3\u03B9\u03B1\u03C4\u03B9\u03BA\u03CC Snack Pack",
+      item7Desc:"Pocki, \u03BA\u03B1\u03C5\u03C4\u03CC, \u03BE\u03B7\u03C1\u03CC \u03B8\u03B1\u03BB\u03B1\u03C3\u03C3\u03B9\u03BD\u03CC \u2014 \u03B3\u03B9\u03B1 \u03C4\u03B1\u03B9\u03BD\u03AF\u03B5\u03C2",
+      item8Name:"\u0391\u03C3\u03B9\u03B1\u03C4\u03B9\u03BA\u03AC \u0392\u03B1\u03C3\u03B9\u03BA\u03AC",
+      item8Desc:"Soy sauce, chili, \u03BA\u03AC\u03C1\u03C5, miso \u2014 \u03B3\u03B9\u03B1 \u03BC\u03B1\u03B3\u03B5\u03AF\u03C1\u03B5\u03BC\u03B1",
+      item9Name:"COSRX \u03A3\u03B1\u03BB\u03B9\u03B3\u03AC\u03C1\u03B9 Serum",
+      item9Desc:"96% \u03C3\u03B1\u03BB\u03B9\u03B3\u03AC\u03C1\u03B9, \u03B5\u03C0\u03B1\u03BD\u03BF\u03C1\u03B8\u03CE\u03C3\u03B7 & \u03B5\u03BD\u03C5\u03B4\u03AC\u03C4\u03C9\u03C3\u03B7",
+      item10Name:"Koreatiko Mask Set",
+      item10Desc:"VT, Dr.Jart, TonyMoly bestsellers",
+      item11Name:"3CE Makeup Collection",
+      item11Desc:"Korean lip tints & eyeshadow, K-drama style",
+      item12Name:"K-Pop Album Merch",
+      item12Desc:"BTS / BLACKPINK / IVE \u03B5\u03C0\u03AF\u03C3\u03B7\u03BC\u03B1 \u03B1\u03BB\u03BC\u03B2\u03BF\u03CD\u03BC & cards",
+      storeTitle:"\u0395\u03C0\u03B9\u03C3\u03BA\u03B5\u03C8\u03C4\u03B5\u03AF\u03C4\u03B5 \u03BC\u03B1\u03C2",
+      storeDesc:"\u03A4\u03BF MISO \u03B5\u03AF\u03BD\u03B1\u03B9 \u03C6\u03C5\u03C3\u03B9\u03BA\u03CC \u03BA\u03B1\u03C4\u03AC\u03C3\u03C4\u03B7\u03BC\u03B1 \u03C3\u03C4\u03BF Moschato, \u0391\u03B8\u03AE\u03BD\u03B1. \u0395\u03BB\u03AC\u03C4\u03B5 \u03B3\u03B9\u03B1 boba, sushi \u03BA\u03B1\u03B9 \u03B1\u03B3\u03BF\u03C1\u03AD\u03C2!",
+      addressLabel:"\u0394\u03B9\u03B5\u03CD\u03B8\u03C5\u03BD\u03C3\u03B7:",
+      addressValue:"Makrigianni 75, Moschato 183 45, \u0391\u03B8\u03AE\u03BD\u03B1, \u0395\u03BB\u03BB\u03AC\u03B4\u03B1",
+      hoursLabel:"\u03A9\u03C1\u03AC\u03C1\u03B9\u03BF:",
+      hoursValue:"\u03A4\u03C1\u03B9\u2013\u039A\u03C5\u03C1 11:00\u201322:00 (\u0394\u03B5\u03C5\u03C4\u03AD\u03C1\u03B1 \u03BA\u03BB\u03B5\u03B9\u03C3\u03C4\u03AC)",
+      contactLabel:"\u0395\u03C0\u03B9\u03BA\u03BF\u03B9\u03BD\u03C9\u03BD\u03AF\u03B1:",
+      mapLink:"\u0391\u03BD\u03BF\u03AF\u03B3\u03BC\u03B1 \u03C3\u03B5 Google Maps \u2192",
+      footerText:"\u00A9 2025 MISO. \u0391\u03C3\u03B9\u03B1\u03C4\u03B9\u03BA\u03CC \u039A\u03B1\u03C4\u03AC\u03C3\u03C4\u03B7\u03BC\u03B1 \u03C3\u03C4\u03B7\u03BD \u0391\u03B8\u03AE\u03BD\u03B1.",
+      linkShop:"\u03A0\u03C1\u03BF\u03CA\u03CC\u03BD\u03C4\u03B1",
+      linkStore:"\u039A\u03B1\u03C4\u03AC\u03C3\u03C4\u03B7\u03BC\u03B1",
+      linkContact:"\u0395\u03C0\u03B9\u03BA\u03BF\u03B9\u03BD\u03C9\u03BD\u03AF\u03B1"
+    }
+  };
+
+  window.setLang = function(lang){
+    if(!i18n[lang]) return;
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang === 'en' ? 'en' : 'el';
+    var btns = document.querySelectorAll('.lang-btn');
+    for(var bi = 0; bi < btns.length; bi++){
+      if(btns[bi].getAttribute('data-lang') === lang){
+        btns[bi].classList.add('active');
+      } else {
+        btns[bi].classList.remove('active');
+      }
+    }
+    var els = document.querySelectorAll('[data-i18n]');
+    for(var i = 0; i < els.length; i++){
+      var k = els[i].getAttribute('data-i18n');
+      if(i18n[lang] && typeof i18n[lang][k] !== 'undefined'){
+        els[i].innerHTML = i18n[lang][k];
+      }
+    }
+  };
+
+  window.filterProducts = function(cat){
+    var cbtns = document.querySelectorAll('.cat-btn');
+    for(var ci = 0; ci < cbtns.length; ci++){
+      if(cat === 'all'){
+        if(cbtns[ci].getAttribute('data-cat') === 'all') cbtns[ci].classList.add('active');
+        else cbtns[ci].classList.remove('active');
+      } else {
+        if(cbtns[ci].getAttribute('data-cat') === cat) cbtns[ci].classList.add('active');
+        else cbtns[ci].classList.remove('active');
+      }
+    }
+    var cards = document.querySelectorAll('.card');
+    for(var j = 0; j < cards.length; j++){
+      if(cat === 'all' || cards[j].getAttribute('data-category') === cat){
+        cards[j].style.display = '';
+      } else {
+        cards[j].style.display = 'none';
+      }
+    }
+  };
+})();
+</script>
+
+</body>
+</html>
